@@ -1,26 +1,18 @@
-describe("Testing assertions", () => {
-	it("Obtaining element by a tag", () => {
-		cy.visit("/automation-practice-form")
-		cy.get("input")
+describe("Assertions", () => {
+	it("Test one", () => {
+		cy.visit("https://platzi.com/blog/codigo-desconocido/")
+		cy.url().should("include", "platzi.com/blog")
+
+		cy.get("h1").should("be.visible").and("contain.text", "Nuevos Laboratorios Avanzados")
 	})
 
-	it("Obtaining by an attribute", () => {
-		cy.visit("/automation-practice-form")
-		cy.get("[placeholder='First Name']")
-	})
+	it("Test two", () => {
+		cy.visit("https://platzi.com/blog/codigo-desconocido/")
+		cy.url().should("include", "platzi.com/blog")
 
-	it("Obtaining by an attribute and a tag", () => {
-		cy.visit("/automation-practice-form")
-		cy.get("input[placeholder='First Name']")
-	})
-
-	it("Obtaining by and id", () => {
-		cy.visit("/automation-practice-form")
-		cy.get("#firstName")
-	})
-
-	it("Obtaining by class name", () => {
-		cy.visit("/automation-practice-form")
-		cy.get(".formControl")
+		cy.get("h1").then(header => {
+			expect(header).to.be.visible
+			expect(header).to.contain.text("Nuevos Laboratorios Avanzados")
+		})
 	})
 })
