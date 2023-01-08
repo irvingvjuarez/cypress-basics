@@ -1,12 +1,7 @@
 describe("Saving elements in the tests", () => {
-	it("", () => {
-		cy.visit("/automation-practice-form")
+	it("Should count the p elements correctly", () => {
+		cy.visit("https://platzi.com/blog/indicadores-economicos/")
 
-		cy.get("input[placeholder='First Name']")
-			.parents()
-			.find("label")
-			.then(labels => {
-				expect(labels.length).to.eq(16)
-			})
+		cy.get("#top").debug()
 	})
 })
