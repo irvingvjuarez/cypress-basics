@@ -8,10 +8,13 @@ describe("Testing dropdowns", () => {
 	it.only("Dynamic dropdowns", () => {
 		cy.visit("https://react-select.com/home")
 		cy.get("#react-select-6-input").type(" ")
-		cy.get("#react-select-6-listbox").children().children().each($el => {
-			if ($el.text() === "Red") {
-				$el.click()
-			}
-		})
+
+		// cy.get("#react-select-6-listbox").children().children().each($el => {
+		// 	if ($el.text() === "Red") {
+		// 		$el.click()
+		// 	}
+		// })
+
+		cy.get("#react-select-6-option-3").click()
 	})
 })
